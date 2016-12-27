@@ -16,11 +16,6 @@ class GroupsController < ApplicationController
   def edit
   end
 
-    if current_user != @group.user
-      redirect_to root_path, alert: "You have no permission."
-    end
-  end
-
   def create
     @group = Group.new(group_params)
     @group.user = current_user
